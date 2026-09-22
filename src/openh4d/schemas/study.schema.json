@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-h.org/openh-4d/schemas/study/1.0",
-  "title": "OpenH-4D study.json",
-  "description": "Metadata for one 4D study, living at <study_dir>/study.json. Fields follow OpenH-4D RFP section 8 (Data Details and Modality specifics).",
+  "$id": "https://open-h.org/open-h-4d/schemas/study/1.0",
+  "title": "Open-H-4D study.json",
+  "description": "Metadata for one 4D study, living at <study_dir>/study.json. Fields follow Open-H-4D RFP section 8 (Data Details and Modality specifics).",
   "type": "object",
   "required": [
     "schema", "study_id", "patient_id", "modality", "organ", "motion",
@@ -10,7 +10,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema": { "const": "openh-4d/study/1.0" },
+    "schema": { "const": "open-h-4d/study/1.0" },
     "study_id": { "type": "string", "pattern": "^[A-Z][A-Z0-9-]{1,46}[0-9][A-Z]+$" },
     "patient_id": { "type": "string", "pattern": "^[A-Z][A-Z0-9-]{1,46}[0-9]$" },
 

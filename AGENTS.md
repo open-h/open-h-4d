@@ -1,7 +1,7 @@
 # Agents in this repo
 
 Cross-agent instructions for AI tools (Claude Code, Codex CLI, OpenCode, Copilot
-CLI, Gemini CLI) working on the OpenH-4D repository.
+CLI, Gemini CLI) working on the Open-H-4D repository.
 
 ## The one structural idea
 
@@ -27,16 +27,16 @@ Each is a directory with a `SKILL.md` plus whatever `references/` it needs.
 
 | Skill | Purpose |
 |---|---|
-| [`skills/openh-4d-organize-dicom/`](skills/openh-4d-organize-dicom/) | Split a DICOM pile into the OpenH-4D layout: group by patient, study and time point, assign de-identified identifiers, keep the crosswalk outside the submission |
-| [`skills/openh-4d-convert/`](skills/openh-4d-convert/) | Convert to per-time-point NIfTI — DICOM via pinned dcm2niix, NRRD/Slicer sequences via SimpleITK, vendor 4D ultrasound via the private-tag decoder |
-| [`skills/openh-4d-verify-layout/`](skills/openh-4d-verify-layout/) | Verify a submission against the layout specification and explain failures |
-| [`skills/openh-4d-submission-eval/`](skills/openh-4d-submission-eval/) | Seven-dimension graded intake review producing `evaluation_report.md` |
+| [`skills/open-h-4d-organize-dicom/`](skills/open-h-4d-organize-dicom/) | Split a DICOM pile into the Open-H-4D layout: group by patient, study and time point, assign de-identified identifiers, keep the crosswalk outside the submission |
+| [`skills/open-h-4d-convert/`](skills/open-h-4d-convert/) | Convert to per-time-point NIfTI — DICOM via pinned dcm2niix, NRRD/Slicer sequences via SimpleITK, vendor 4D ultrasound via the private-tag decoder |
+| [`skills/open-h-4d-verify-layout/`](skills/open-h-4d-verify-layout/) | Verify a submission against the layout specification and explain failures |
+| [`skills/open-h-4d-submission-eval/`](skills/open-h-4d-submission-eval/) | Seven-dimension graded intake review producing `evaluation_report.md` |
 
-[`skills/openh-4d-shared/`](skills/openh-4d-shared/) is **support material, not a
+[`skills/open-h-4d-shared/`](skills/open-h-4d-shared/) is **support material, not a
 skill**. It has no `SKILL.md`, so it gets no discovery entry and no agent tries to
 invoke it. It holds the normative layout specification, the RFP summary, the
 sidecar templates, the PHI checklist and the evaluation report template, which
-the four skills read by relative path (`../openh-4d-shared/layout-spec.md`).
+the four skills read by relative path (`../open-h-4d-shared/layout-spec.md`).
 
 ### Discovery
 
@@ -85,7 +85,7 @@ Claude Code specific.
 - **Tests:** `uv run pytest tests/ -m "not heavy"` for the light suite — no
   network, about 30 seconds. `-m heavy` downloads the real example datasets.
 - **The prose spec and the code must agree.** `tests/test_spec_consistency.py`
-  asserts the naming grammar in `skills/openh-4d-shared/layout-spec.md` is
+  asserts the naming grammar in `skills/open-h-4d-shared/layout-spec.md` is
   identical to the patterns compiled in `openh4d.naming`, that both sidecar
   templates validate, and that every conformance rule is documented. Editing a
   rule means editing both places; that friction is intentional.

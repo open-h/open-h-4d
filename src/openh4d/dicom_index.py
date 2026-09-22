@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Index a pile of DICOM files and work out what the 4D studies are.
 
-This is the highest-risk logic in OpenH-4D. Everything downstream inherits its
+This is the highest-risk logic in Open-H-4D. Everything downstream inherits its
 decision about what constitutes one 4D study and which image belongs to which
 time point, and a wrong answer is invisible in the output: the volumes still
 open, the geometry still looks fine, and the motion is simply wrong.
@@ -33,7 +33,7 @@ from typing import Any
 
 import numpy as np
 
-SCHEMA_VERSION = "openh-4d/dicom-plan/1.0"
+SCHEMA_VERSION = "open-h-4d/dicom-plan/1.0"
 
 #: Respiratory or cardiac phase written into the series description, as TCIA
 #: 4D-Lung and many vendor 4D CT exports do ("... 50.0%", "Ex", "In").

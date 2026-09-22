@@ -17,7 +17,7 @@ from openh4d.schema import (
     validate_study,
 )
 
-SHARED = "skills/openh-4d-shared"
+SHARED = "skills/open-h-4d-shared"
 
 
 def _codes(findings):
@@ -37,7 +37,7 @@ def study(repo_root):
 @pytest.fixture
 def manifest():
     return {
-        "schema": "openh-4d/manifest/1.0",
+        "schema": "open-h-4d/manifest/1.0",
         "submission_id": "example",
         "generated_by": "openh4d 0.1.0",
         "generated_at": "2027-03-04T12:00:00Z",
@@ -170,7 +170,7 @@ def test_timepoint_indices_must_be_contiguous(study):
 
 
 def test_single_timepoint_is_rejected(study):
-    """OpenH-4D is a 4D initiative; one time point is a 3D study."""
+    """Open-H-4D is a 4D initiative; one time point is a 3D study."""
     study["timepoints"] = study["timepoints"][:1]
     study["n_timepoints"] = 1
     assert "E_SCHEMA" in _codes(validate_study(study))

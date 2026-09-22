@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""The OpenH-4D submission directory-naming grammar.
+"""The Open-H-4D submission directory-naming grammar.
 
 A submission root holds one directory per 4D study, named
 ``<patient_id><letter>``, plus one auxiliary directory per patient, named
@@ -30,7 +30,7 @@ import re
 from dataclasses import dataclass
 
 # The three patterns below are mirrored verbatim in
-# skills/openh-4d-shared/layout-spec.md; tests/test_spec_consistency.py asserts
+# skills/open-h-4d-shared/layout-spec.md; tests/test_spec_consistency.py asserts
 # the two copies stay identical.
 _PATIENT_ID_BODY = r"[A-Z][A-Z0-9-]{1,46}[0-9]"
 
@@ -46,7 +46,7 @@ KIND_EHR = "ehr"
 
 
 class InvalidNameError(ValueError):
-    """A directory name does not match the OpenH-4D naming grammar."""
+    """A directory name does not match the Open-H-4D naming grammar."""
 
 
 @dataclass(frozen=True)
@@ -159,7 +159,7 @@ def _explain_invalid(name: str) -> str:
         STUDY_DIR_RE.fullmatch(name.upper()) or EHR_DIR_RE.fullmatch(name.upper())
     ):
         return (
-            f"{name!r} is not uppercase. OpenH-4D directory names must be uppercase so they "
+            f"{name!r} is not uppercase. Open-H-4D directory names must be uppercase so they "
             f"cannot collide on case-insensitive filesystems. Rename to {name.upper()!r}."
         )
     if PATIENT_ID_RE.fullmatch(name):
@@ -175,7 +175,7 @@ def _explain_invalid(name: str) -> str:
             f"no underscores)."
         )
     return (
-        f"{name!r} does not match the OpenH-4D naming grammar. Expected "
+        f"{name!r} does not match the Open-H-4D naming grammar. Expected "
         f"'<PATIENT_ID><LETTER>' for a study (e.g. 'STAN-0001A') or '<PATIENT_ID>_ehr' for "
         f"auxiliary patient information (e.g. 'STAN-0001_ehr'), where the patient identifier "
         f"is 3-48 uppercase characters, starts with a letter, ends in a digit, and contains "

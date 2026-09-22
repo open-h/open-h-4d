@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Scan for protected health information.
 
-**OpenH-4D tooling verifies de-identification; it does not perform it.** RFP
+**Open-H-4D tooling verifies de-identification; it does not perform it.** RFP
 section 10 puts the obligation on the proposer, and writing an anonymizer is a
 large, high-liability piece of work when mature implementations already exist
 (RSNA CTP, DICOM PS3.15 Basic Application Level Confidentiality Profile). What
@@ -276,7 +276,7 @@ def scan_dicom_file(path: Path, relative: str = "") -> list[PhiFinding]:
                 message=(
                     f"{len(private_blocks)} private tag group(s) present "
                     f"({', '.join(hex(g) for g in private_blocks[:6])}). Vendors store arbitrary "
-                    f"data there, including identifiers. OpenH-4D drops every private tag when "
+                    f"data there, including identifiers. Open-H-4D drops every private tag when "
                     f"it retains DICOM."
                 ),
                 path=location,
@@ -439,7 +439,7 @@ def main(argv: list[str] | None = None) -> int:
     print(json.dumps(report.as_dict(), indent=2))
     if not report.clean:
         print(
-            "\nThis data is not de-identified. OpenH-4D tooling will not de-identify it for "
+            "\nThis data is not de-identified. Open-H-4D tooling will not de-identify it for "
             "you -- run a DICOM PS3.15 confidentiality profile implementation (RSNA CTP or "
             "equivalent) first, then re-run this check.",
             file=sys.stderr,

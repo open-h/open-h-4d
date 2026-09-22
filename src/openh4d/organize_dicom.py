@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Apply a DICOM index plan, writing the OpenH-4D submission layout.
+"""Apply a DICOM index plan, writing the Open-H-4D submission layout.
 
 Takes the plan proposed by :mod:`openh4d.dicom_index` (and confirmed by a human)
 and materializes it: one directory per 4D study named ``<PATIENT_ID><LETTER>``,
@@ -105,7 +105,7 @@ def apply_allowlist(dataset, keywords: set[str]):
 def assign_identifiers(
     plan: dict[str, Any], prefix: str, start: int = 1, width: int = 4
 ) -> list[Assignment]:
-    """Map every planned study to its OpenH-4D patient and study identifier.
+    """Map every planned study to its Open-H-4D patient and study identifier.
 
     Patients are numbered in sorted source-identifier order and studies lettered
     in the plan's order (which :mod:`openh4d.dicom_index` already sorted by
@@ -147,7 +147,7 @@ def resolve_crosswalk_path(out_root: Path, explicit: Path | None, submission_id:
     if path == root or root in path.parents:
         raise OrganizeError(
             f"refusing to write the crosswalk to {path}: it is inside the submission root "
-            f"{root}. The crosswalk maps OpenH-4D identifiers back to real patients and must "
+            f"{root}. The crosswalk maps Open-H-4D identifiers back to real patients and must "
             f"never travel with the data. Leave --crosswalk unset to use "
             f"{crosswalk_dir()}, or point it somewhere outside the submission."
         )
@@ -200,7 +200,7 @@ def study_stub(
     modality = assignment.modality if assignment.modality in {"CT", "MR", "US"} else "CT"
 
     study: dict[str, Any] = {
-        "schema": "openh-4d/study/1.0",
+        "schema": "open-h-4d/study/1.0",
         "study_id": assignment.study_id,
         "patient_id": assignment.patient_id,
         "modality": modality,
@@ -283,7 +283,7 @@ def study_stub(
 def patient_stub(patient_id: str, study_ids: list[str]) -> dict[str, Any]:
     """A ``patient.json`` with every clinical field flagged for the contributor."""
     return {
-        "schema": "openh-4d/patient/1.0",
+        "schema": "open-h-4d/patient/1.0",
         "patient_id": patient_id,
         "studies": study_ids,
         "demographics": {

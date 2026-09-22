@@ -18,13 +18,13 @@ The structure is deliberate:
   workstation and re-run through :mod:`openh4d.convert_nrrd`.
 
 **Status.** The detection, dispatch, self-check and fallback are complete and
-tested. The two vendor decoder bodies are not: neither of the OpenH-4D example
+tested. The two vendor decoder bodies are not: neither of the Open-H-4D example
 datasets contains vendor 4D echo, so there are no real bytes to build against,
 and a decoder written against a guessed layout would be exactly the silent
 wrongness this module exists to prevent. Each raises
 :class:`DecoderNotImplemented`, which the fallback turns into the export
 instruction. Finishing them needs one real Philips and one real GE 4D echo
-study; see ``skills/openh-4d-convert/references/us-vendor.md``.
+study; see ``skills/open-h-4d-convert/references/us-vendor.md``.
 """
 
 from __future__ import annotations

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Resolve a pinned ``dcm2niix`` binary, downloading it if necessary.
 
-OpenH-4D converts DICOM to NIfTI with `dcm2niix <https://github.com/rordenlab/dcm2niix>`_,
+Open-H-4D converts DICOM to NIfTI with `dcm2niix <https://github.com/rordenlab/dcm2niix>`_,
 pinned to one release so that 20,000 studies from dozens of contributors are all
 converted by the same code. Different dcm2niix versions can differ in NIfTI
 orientation handling; that difference is invisible in the output and poisons a

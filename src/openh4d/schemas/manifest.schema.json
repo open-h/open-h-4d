@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-h.org/openh-4d/schemas/manifest/1.0",
-  "title": "OpenH-4D manifest.json",
+  "$id": "https://open-h.org/open-h-4d/schemas/manifest/1.0",
+  "title": "Open-H-4D manifest.json",
   "description": "Generated index of a submission, living at the submission root. Hashes cover the JSON sidecars only: metadata is what silently drifts, and hashing multi-gigabyte image data on every verification run would make the verifier unusable. Use checksums.sha256 when transfer integrity is in question.",
   "type": "object",
   "required": ["schema", "generated_by", "generated_at", "counts", "patients"],
   "additionalProperties": false,
   "properties": {
-    "schema": { "const": "openh-4d/manifest/1.0" },
+    "schema": { "const": "open-h-4d/manifest/1.0" },
     "submission_id": { "type": ["string", "null"] },
     "contributor": {
       "type": "object",

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """The prose spec and the code must not drift apart.
 
-``skills/openh-4d-shared/layout-spec.md`` is what every agent skill reads, and
+``skills/open-h-4d-shared/layout-spec.md`` is what every agent skill reads, and
 ``openh4d`` is what actually enforces the rules. If they disagree, contributors
 are told one thing and graded on another. These tests make the documentation
 load-bearing, so drift fails CI instead of surfacing as a confused contributor.
@@ -14,8 +14,8 @@ import pytest
 
 from openh4d import naming, schema
 
-SPEC = "skills/openh-4d-shared/layout-spec.md"
-SHARED = "skills/openh-4d-shared"
+SPEC = "skills/open-h-4d-shared/layout-spec.md"
+SHARED = "skills/open-h-4d-shared"
 
 
 @pytest.fixture

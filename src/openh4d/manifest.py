@@ -26,7 +26,7 @@ from . import naming
 from .naming import KIND_EHR, KIND_STUDY, InvalidNameError
 
 MANIFEST_NAME = "manifest.json"
-SCHEMA_VERSION = "openh-4d/manifest/1.0"
+SCHEMA_VERSION = "open-h-4d/manifest/1.0"
 
 
 def sha256_file(path: Path) -> str:

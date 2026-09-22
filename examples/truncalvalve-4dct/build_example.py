@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Build an OpenH-4D submission from a 3D Slicer 4D sequence NRRD.
+"""Build an Open-H-4D submission from a 3D Slicer 4D sequence NRRD.
 
 The source is one file: ``TruncalValve_4DCT.seq.nrrd``, a cardiac-gated 4D CT of
 a truncal valve written by 3D Slicer as a sequence. This is the path a
@@ -53,12 +53,12 @@ ID_PREFIX = "CHOP"
 
 DATA_CARD = """\
 ---
-pretty_name: "OpenH-4D -- Truncal Valve 4D CT"
+pretty_name: "Open-H-4D -- Truncal Valve 4D CT"
 license: cc-by-4.0
 task_categories:
   - image-segmentation
 tags:
-  - openh-4d
+  - open-h-4d
   - 4d
   - ct
   - heart
@@ -69,9 +69,9 @@ size_categories:
   - n<1K
 ---
 
-# OpenH-4D -- Truncal Valve 4D CT
+# Open-H-4D -- Truncal Valve 4D CT
 
-A cardiac-gated 4D CT of a truncal valve, restructured into the OpenH-4D
+A cardiac-gated 4D CT of a truncal valve, restructured into the Open-H-4D
 submission layout from the `TruncalValve_4DCT.seq.nrrd` release asset published
 by [Project-MONAI/monai-physio](https://github.com/Project-MONAI/monai-physio).
 
@@ -83,7 +83,7 @@ time.
 
 ## Dataset Contributor(s)
 
-Restructured by the OpenH-4D tooling from a public release.
+Restructured by the Open-H-4D tooling from a public release.
 
 ## License / Terms of Use
 
@@ -91,7 +91,7 @@ CC BY 4.0, inherited from the upstream release.
 
 ## Intended Usage
 
-Modelling cardiac valve motion; a worked example of the OpenH-4D layout for
+Modelling cardiac valve motion; a worked example of the Open-H-4D layout for
 contributors whose data is in a research tool's own format rather than DICOM.
 
 ## Dataset Characterization
@@ -103,7 +103,7 @@ contributors whose data is in a research tool's own format rather than DICOM.
 
 ## Dataset Format
 
-OpenH-4D submission layout: one `t####.nii.gz` per cardiac phase, converted
+Open-H-4D submission layout: one `t####.nii.gz` per cardiac phase, converted
 from the Slicer sequence with SimpleITK. The source declares RAS; the written
 NIfTI affines carry that geometry through unchanged, with no resampling.
 
@@ -134,11 +134,11 @@ this: a wrong handedness flip mirrors the anatomy without raising anything.
 ## Known Issues
 
 Subject-level clinical metadata is not available upstream, so `patient.json` is
-sparse. A real OpenH-4D submission is expected to populate it.
+sparse. A real Open-H-4D submission is expected to populate it.
 
 ## Ethical Considerations
 
-The upstream release is public and de-identified. The OpenH-4D identifier is
+The upstream release is public and de-identified. The Open-H-4D identifier is
 assigned locally.
 """
 
@@ -199,7 +199,7 @@ def apply_clinical_context(study_dir: Path, n_timepoints: int) -> None:
 
 def write_patient_json(root: Path, patient_id: str, study_ids: list[str]) -> None:
     document = {
-        "schema": "openh-4d/patient/1.0",
+        "schema": "open-h-4d/patient/1.0",
         "patient_id": patient_id,
         "studies": study_ids,
         "demographics": {
@@ -240,7 +240,7 @@ def write_patient_json(root: Path, patient_id: str, study_ids: list[str]) -> Non
             "performed_by": "upstream release",
             "tooling": None,
             "attestation": (
-                "Publicly released and de-identified upstream. The OpenH-4D identifier is "
+                "Publicly released and de-identified upstream. The Open-H-4D identifier is "
                 "assigned locally."
             ),
         },
@@ -321,7 +321,7 @@ def main(argv: list[str] | None = None) -> int:
     if not verification.compliant:
         return 1
 
-    print(f"\nBuilt a compliant OpenH-4D submission at {out}")
+    print(f"\nBuilt a compliant Open-H-4D submission at {out}")
     print(
         "\nOrientation check, worth doing once by hand: open "
         f"{out / study_id / 't0000.nii.gz'} alongside the original sequence in 3D Slicer and "

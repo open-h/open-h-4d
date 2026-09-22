@@ -123,7 +123,7 @@ def write_series(
                 dataset.ReferringPhysicianName = "SMITH^JOHN"
                 dataset.AccessionNumber = "ACC1234567"
 
-            dataset.Manufacturer = "OpenH-4D"
+            dataset.Manufacturer = "Open-H-4D"
             dataset.ManufacturerModelName = "synthetic"
             dataset.PatientPosition = "HFS"
 

@@ -1,6 +1,6 @@
 # Synthetic 4D CT example
 
-Builds a complete OpenH-4D submission from synthetic DICOM, with no network
+Builds a complete Open-H-4D submission from synthetic DICOM, with no network
 access and in a few seconds. Run this first.
 
 ```bash

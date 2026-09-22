@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Platform-appropriate cache locations for OpenH-4D tooling.
+"""Platform-appropriate cache locations for Open-H-4D tooling.
 
 Two things get cached outside the repository: the pinned ``dcm2niix`` binary,
 and the re-identification crosswalks written by ``organize_dicom``. Crosswalks
@@ -14,7 +14,7 @@ import os
 import sys
 from pathlib import Path
 
-APP_NAME = "openh-4d"
+APP_NAME = "open-h-4d"
 
 #: Set this to override every cache location (useful in CI and in tests).
 CACHE_ENV_VAR = "OPENH4D_CACHE_DIR"

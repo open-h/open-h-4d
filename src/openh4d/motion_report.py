@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Measure whether a 4D study actually contains motion, and what kind.
 
-This is the check unique to a 4D initiative. Everything else OpenH-4D verifies
+This is the check unique to a 4D initiative. Everything else Open-H-4D verifies
 would be just as true of a pile of 3D scans: the naming, the schemas, the
 resolution thresholds. None of them notice a study where two "time points" are
 the same volume copied twice, or where the phase sort collapsed, or where the
