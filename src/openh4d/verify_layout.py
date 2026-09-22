@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
-"""The authoritative OpenH-4D submission layout checker.
+"""The authoritative Open-H-4D submission layout checker.
 
 Everything else defers to this module. The verify skill runs it, the submission
 evaluator treats ``compliant: true`` as the single pass criterion for its layout
 dimension, and the convert skill runs it on one study before scaling to the
 rest. There is exactly one implementation of "is this a valid submission".
 
-The normative prose spec is ``skills/openh-4d-shared/layout-spec.md``;
+The normative prose spec is ``skills/open-h-4d-shared/layout-spec.md``;
 ``tests/test_spec_consistency.py`` asserts the two do not drift apart.
 
 Usage::
@@ -38,7 +38,7 @@ from .check_volumes import (
 )
 from .naming import KIND_EHR, KIND_STUDY, InvalidNameError
 
-SCHEMA_VERSION = "openh-4d/verify/1.0"
+SCHEMA_VERSION = "open-h-4d/verify/1.0"
 
 README_NAME = "README.md"
 LICENSE_NAME = "LICENSE"
@@ -130,7 +130,7 @@ def _check_root_files(root: Path, report: Report) -> None:
     """README.md, LICENSE and manifest.json live only at the submission root."""
     for required, why in (
         (README_NAME, "the data card; Hugging Face renders it as the dataset landing page"),
-        (LICENSE_NAME, "the CC BY 4.0 licence text OpenH-4D requires for the data"),
+        (LICENSE_NAME, "the CC BY 4.0 licence text Open-H-4D requires for the data"),
         (MANIFEST_NAME, "the generated index; run 'python -m openh4d.manifest <root>'"),
     ):
         if not (root / required).is_file():
@@ -144,7 +144,7 @@ def _check_root_files(root: Path, report: Report) -> None:
         if entry.is_file() and entry.name not in ALLOWED_ROOT_FILES:
             report.warn(
                 "W_UNEXPECTED_ROOT_ENTRY",
-                f"{entry.name} is not part of the OpenH-4D layout. Expected only "
+                f"{entry.name} is not part of the Open-H-4D layout. Expected only "
                 f"{', '.join(sorted(ALLOWED_ROOT_FILES))} plus study and _ehr directories.",
                 _rel(root, entry),
             )
@@ -155,7 +155,7 @@ def _check_forbidden_names(root: Path, report: Report) -> None:
 
     The crosswalk is written outside the submission root by design, but a
     contributor can still copy one in by hand, and that is the single worst
-    thing that could ship in an OpenH-4D submission.
+    thing that could ship in an Open-H-4D submission.
     """
     for path in root.rglob("*"):
         match = FORBIDDEN_NAME_RE.search(path.name.lower())
@@ -163,7 +163,7 @@ def _check_forbidden_names(root: Path, report: Report) -> None:
             report.error(
                 "E_FORBIDDEN_FILE",
                 f"{path.name!r} matches {match.group(1)!r}, which suggests a re-identification "
-                f"key or unredacted PHI. Nothing linking OpenH-4D identifiers back to source "
+                f"key or unredacted PHI. Nothing linking Open-H-4D identifiers back to source "
                 f"patient identifiers may appear inside a submission.",
                 _rel(root, path),
             )
@@ -275,7 +275,7 @@ def _verify_study(
         report.error(
             "E_MISSING_STUDY_JSON",
             f"{STUDY_JSON} is missing. Every study directory needs one -- copy "
-            f"skills/openh-4d-shared/study-json-template.json and fill it in.",
+            f"skills/open-h-4d-shared/study-json-template.json and fill it in.",
             f"{study_rel}/{STUDY_JSON}",
         )
     else:
@@ -624,7 +624,7 @@ def _verify_patient(
             report.error(
                 "E_MISSING_PATIENT_JSON",
                 f"{PATIENT_JSON} is missing from {ehr_dir.name}/. Copy "
-                f"skills/openh-4d-shared/patient-json-template.json and fill it in.",
+                f"skills/open-h-4d-shared/patient-json-template.json and fill it in.",
                 f"{ehr_dir.name}/{PATIENT_JSON}",
             )
         else:
@@ -779,7 +779,7 @@ def main(argv: list[str] | None = None) -> int:
     from . import __version__
 
     parser = argparse.ArgumentParser(
-        description="Verify a directory against the OpenH-4D submission layout."
+        description="Verify a directory against the Open-H-4D submission layout."
     )
     parser.add_argument("root", type=Path, help="the submission root directory")
     parser.add_argument(

@@ -143,7 +143,7 @@ def test_synthetic_example_data_card_has_hf_frontmatter(tmp_path, dcm2niix_path)
     text = (out / "README.md").read_text(encoding="utf-8")
     assert text.startswith("---\n")
     assert "license: cc-by-4.0" in text
-    assert "openh-4d" in text
+    assert "open-h-4d" in text
 
 
 # --- heavy -------------------------------------------------------------------

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""OpenH-4D RFP conformance rules, applied to a ``study.json``.
+"""Open-H-4D RFP conformance rules, applied to a ``study.json``.
 
 These are the acquisition-quality thresholds from RFP section 8 (Modality
 specifics): resolution and slice spacing for CT, declared cine parameters for
@@ -10,7 +10,7 @@ to fall outside a threshold records a waiver in ``study.json.waivers`` with a
 justification; that downgrades the rule to a **warning**, so the steering group
 sees it rather than the submission being silently rejected or silently accepted.
 
-``min_timepoints`` is the one rule that cannot be waived: OpenH-4D collects 4D
+``min_timepoints`` is the one rule that cannot be waived: Open-H-4D collects 4D
 data, and a study with a single time point is a 3D study.
 """
 
@@ -114,7 +114,7 @@ def _check_min_timepoints(study: dict[str, Any]) -> str | None:
     n = study.get("n_timepoints")
     if not isinstance(n, int) or n < 2:
         return (
-            f"n_timepoints is {n!r}; OpenH-4D collects 4D data, so a study needs at least two "
+            f"n_timepoints is {n!r}; Open-H-4D collects 4D data, so a study needs at least two "
             f"time points. A single time point is a 3D study."
         )
     return None

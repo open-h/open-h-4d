@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/openh-4d-header.png" alt="OpenH-4D" width="100%">
+<img src="assets/open-h-4d-header.png" alt="Open-H-4D" width="100%">
 
-# OpenH-4D
+# Open-H-4D
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 [![Data](https://img.shields.io/badge/Data-CC%20BY%204.0-green.svg?style=for-the-badge)](https://creativecommons.org/licenses/by/4.0/)
@@ -15,7 +15,7 @@
 
 ## About
 
-OpenH-4D is an [Open-H.org](https://open-h.org) initiative to collect **4D data
+Open-H-4D is an [Open-H.org](https://open-h.org) initiative to collect **4D data
 from at least 20,000 subjects** — patient details together with sequences of 3D
 images capturing cardiac and/or respiratory motion. Building on the
 OpenH-Embodiment video collection effort, it aligns leading institutions around a
@@ -28,7 +28,7 @@ biomarkers that inform patient-specific physics parameters, training diagnostic
 models that incorporate physiological data, and simulating clinical signals such
 as ECG and spirometry.
 
-NVIDIA sponsors OpenH-4D by pre-processing all submissions and enabling free,
+NVIDIA sponsors Open-H-4D by pre-processing all submissions and enabling free,
 open access to the dataset, foundation model weights and training code on project
 completion.
 
@@ -36,25 +36,24 @@ Released on Hugging Face under **CC BY 4.0**.
 
 ## This repository
 
-Tooling for preparing and checking an OpenH-4D contribution, and the normative
+Tooling for preparing and checking an Open-H-4D contribution, and the normative
 specification of what a submission looks like.
 
 | | |
 |---|---|
-| [`skills/openh-4d-shared/layout-spec.md`](skills/openh-4d-shared/layout-spec.md) | **The submission layout specification.** Start here. |
+| [`skills/open-h-4d-shared/layout-spec.md`](skills/open-h-4d-shared/layout-spec.md) | **The submission layout specification.** Start here. |
 | [`skills/`](skills/) | Agent skills for organizing, converting, verifying and evaluating submissions |
 | [`src/openh4d/`](src/openh4d/) | The Python package every skill invokes |
 | [`examples/`](examples/) | Three worked examples that each build a complete submission |
 
 ## How to participate
 
-1. **Review the RFP** — [Request for Proposals](assets/OpenH-4D_Request_For_Proposals.pdf)
+1. **Review the RFP** — [Call for Proposals](assets/Open-H-4D_Call_For_Proposals.pdf)
    for scope, eligibility, data requirements and review criteria.
-2. **Submit a proposal** — describing the data you would contribute, per RFP §8.
-   *The submission form has not been published yet; contact
-   [openh.data+4d@gmail.com](mailto:openh.data+4d@gmail.com) in the meantime.*
+2. **Submit a proposal** — describing the data you would contribute, per RFP §8,
+   via the [submission form](https://forms.gle/Y9pUAHhG7xYCWDoD7).
 3. **Prepare your data** — using the tooling here. The
-   [layout specification](skills/openh-4d-shared/layout-spec.md) is the contract.
+   [layout specification](skills/open-h-4d-shared/layout-spec.md) is the contract.
 4. **Co-author the release** — contributing teams are named co-authors on both
    the dataset publication and the follow-up foundation-model publication, and
    receive early access to evaluation checkpoints and the dataset itself.
@@ -96,7 +95,7 @@ always starts at `A`:
 Images are `.nii.gz` or DICOM. The letter suffix starts at `A` even for a patient
 with one study, so adding a second later never renames the first. The full rules,
 including the sidecar schemas and the RFP conformance thresholds, are in the
-[layout specification](skills/openh-4d-shared/layout-spec.md).
+[layout specification](skills/open-h-4d-shared/layout-spec.md).
 
 ## Quickstart
 
@@ -177,13 +176,13 @@ Confidentiality Profile implementation — and then check:
 python -m openh4d.phi_scan <source-dir>
 ```
 
-On top of that, OpenH-4D adds defense in depth: `organize_dicom` refuses to run
+On top of that, Open-H-4D adds defense in depth: `organize_dicom` refuses to run
 on obviously identified data, and any DICOM it retains is stripped to a
 conservative tag allowlist. Neither is a substitute for de-identifying properly.
 
 The identifier crosswalk is written **outside** the submission by design, and the
 verifier rejects any submission containing one. See
-[`skills/openh-4d-shared/phi-checklist.md`](skills/openh-4d-shared/phi-checklist.md).
+[`skills/open-h-4d-shared/phi-checklist.md`](skills/open-h-4d-shared/phi-checklist.md).
 
 ## Key dates
 

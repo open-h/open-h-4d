@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Build an OpenH-4D submission from the TCIA 4D-Lung release.
+"""Build an Open-H-4D submission from the TCIA 4D-Lung release.
 
 **This archive is already NIfTI, not DICOM.** It holds eight subjects, each a
 directory of ten respiratory-gated 3D volumes named ``<subject>_g000.nii.gz``
@@ -55,12 +55,12 @@ SOURCE_CITATION = (
 
 DATA_CARD = """\
 ---
-pretty_name: "OpenH-4D -- TCIA 4D-Lung (Part 1)"
+pretty_name: "Open-H-4D -- TCIA 4D-Lung (Part 1)"
 license: cc-by-4.0
 task_categories:
   - image-segmentation
 tags:
-  - openh-4d
+  - open-h-4d
   - 4d
   - ct
   - lung
@@ -71,9 +71,9 @@ size_categories:
   - n<1K
 ---
 
-# OpenH-4D -- TCIA 4D-Lung (Part 1)
+# Open-H-4D -- TCIA 4D-Lung (Part 1)
 
-Respiratory-gated 4D CT of the thorax, restructured into the OpenH-4D
+Respiratory-gated 4D CT of the thorax, restructured into the Open-H-4D
 submission layout from the `TCIA-4DLung-Part1.zip` release asset published by
 [Project-MONAI/monai-physio](https://github.com/Project-MONAI/monai-physio).
 
@@ -89,12 +89,12 @@ account for tumour motion with respiration.
 
 ## Dataset Contributor(s)
 
-Restructured by the OpenH-4D tooling from a public release. Original
+Restructured by the Open-H-4D tooling from a public release. Original
 acquisition: see the citation below.
 
 ## Dataset Creation Date
 
-See the upstream TCIA collection; the OpenH-4D restructuring adds no dates.
+See the upstream TCIA collection; the Open-H-4D restructuring adds no dates.
 
 ## License / Terms of Use
 
@@ -103,7 +103,7 @@ CC BY 4.0, inherited from the upstream TCIA collection.
 ## Intended Usage
 
 Training and validating models of respiratory motion; a worked example of the
-OpenH-4D layout for contributors whose data is already NIfTI.
+Open-H-4D layout for contributors whose data is already NIfTI.
 
 ## Dataset Characterization
 
@@ -113,7 +113,7 @@ OpenH-4D layout for contributors whose data is already NIfTI.
 
 ## Dataset Format
 
-OpenH-4D submission layout: one 4D study per directory, one `t####.nii.gz` per
+Open-H-4D submission layout: one 4D study per directory, one `t####.nii.gz` per
 respiratory gate, with the source gate recorded as each time point's
 `phase_label` and `phase_fraction`.
 
@@ -138,11 +138,11 @@ ten gates.
 ## Known Issues
 
 Subject-level clinical metadata is not available, so the `patient.json` files
-are sparse. A real OpenH-4D submission is expected to populate them.
+are sparse. A real Open-H-4D submission is expected to populate them.
 
 ## Ethical Considerations
 
-The upstream collection is publicly released and de-identified. The OpenH-4D
+The upstream collection is publicly released and de-identified. The Open-H-4D
 identifiers (`{prefix}-NNNN`) are assigned locally and do not encode the
 upstream subject identifiers.
 
@@ -231,7 +231,7 @@ def apply_clinical_context(study_dir: Path) -> None:
 def write_patient_json(root: Path, patient_id: str, study_ids: list[str]) -> None:
     """Sparse by necessity: the upstream release publishes no subject metadata."""
     document = {
-        "schema": "openh-4d/patient/1.0",
+        "schema": "open-h-4d/patient/1.0",
         "patient_id": patient_id,
         "studies": study_ids,
         "demographics": {
@@ -272,7 +272,7 @@ def write_patient_json(root: Path, patient_id: str, study_ids: list[str]) -> Non
             "performed_by": "upstream collection",
             "tooling": "TCIA de-identification pipeline",
             "attestation": (
-                "Publicly released, de-identified upstream. OpenH-4D identifiers are assigned "
+                "Publicly released, de-identified upstream. Open-H-4D identifiers are assigned "
                 "locally and do not encode the upstream subject identifier."
             ),
         },
@@ -314,7 +314,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     print(f"   {len(subject_dirs)} subject(s): {[d.name for d in subject_dirs]}")
 
-    print("2. restructuring into the OpenH-4D layout")
+    print("2. restructuring into the Open-H-4D layout")
     crosswalk_rows = []
     for index, subject_dir in enumerate(subject_dirs, start=1):
         patient_id = make_patient_id(ID_PREFIX, index)
@@ -369,7 +369,7 @@ def main(argv: list[str] | None = None) -> int:
     if not verification.compliant:
         return 1
 
-    print(f"\nBuilt a compliant OpenH-4D submission at {out}")
+    print(f"\nBuilt a compliant Open-H-4D submission at {out}")
     return 0
 
 

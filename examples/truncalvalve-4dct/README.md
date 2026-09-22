@@ -1,6 +1,6 @@
 # Truncal Valve 4D CT example
 
-Converts a 3D Slicer 4D sequence (`.seq.nrrd`) into the OpenH-4D submission
+Converts a 3D Slicer 4D sequence (`.seq.nrrd`) into the Open-H-4D submission
 layout. One subject, one cardiac-gated 4D CT study, 21 time points.
 
 ```bash

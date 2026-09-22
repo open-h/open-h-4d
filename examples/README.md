@@ -1,6 +1,6 @@
-# OpenH-4D examples
+# Open-H-4D examples
 
-Three worked examples, each building a complete, verifiable OpenH-4D submission
+Three worked examples, each building a complete, verifiable Open-H-4D submission
 from a different kind of starting point. Copy the one closest to your data.
 
 | Example | Starting point | Download | Runs in CI |
@@ -20,7 +20,7 @@ submission it just built does not pass. That is the point of them: they are
 executable documentation of what a valid submission looks like, and they fail
 loudly if the layout and the tooling drift apart.
 
-Downloads are cached under the OpenH-4D cache directory
+Downloads are cached under the Open-H-4D cache directory
 (`python -m openh4d.fetch_dcm2niix --show-cache`), so re-running an example
 costs nothing after the first time.
 

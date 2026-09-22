@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Convert a non-DICOM 4D volume into the OpenH-4D per-time-point NIfTI form.
+"""Convert a non-DICOM 4D volume into the Open-H-4D per-time-point NIfTI form.
 
 Handles the sources contributors actually have when the data never went through
 a PACS: a 3D Slicer sequence (``.seq.nrrd``), a plain 4D NRRD/MHA/NIfTI, or a
@@ -205,7 +205,7 @@ def convert_file(source: Path, study_dir: Path) -> tuple[list[Path], dict[str, A
 
     if n_timepoints < 2:
         raise NrrdConvertError(
-            f"{source.name} holds a single volume, not a 4D sequence. OpenH-4D collects 4D "
+            f"{source.name} holds a single volume, not a 4D sequence. Open-H-4D collects 4D "
             f"data: a study needs at least two time points. If your time points are separate "
             f"files, point this tool at the directory containing them instead."
         )
@@ -263,7 +263,7 @@ def update_study_json(
     header = read_header(volumes[0])
     labels = info.get("labels")
 
-    study.setdefault("schema", "openh-4d/study/1.0")
+    study.setdefault("schema", "open-h-4d/study/1.0")
     study.setdefault("study_id", study_id or study_dir.name)
     if patient_id:
         study["patient_id"] = patient_id
@@ -354,7 +354,7 @@ def convert(
 
     if len(volumes) < 2:
         raise NrrdConvertError(
-            f"only {len(volumes)} time point(s) were produced; OpenH-4D requires at least two."
+            f"only {len(volumes)} time point(s) were produced; Open-H-4D requires at least two."
         )
 
     from .check_volumes import read_header

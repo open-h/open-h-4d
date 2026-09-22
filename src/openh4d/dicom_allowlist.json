@@ -1,5 +1,5 @@
 {
-  "note": "Tags that survive when OpenH-4D retains DICOM in a submission. Everything not listed here is dropped. This is an allowlist, not a blocklist, because the set of tags a vendor can hide PHI in is open-ended while the set 4D reconstruction needs is small and known. This is defense in depth on top of contributor-side de-identification -- it is not a de-identification tool, and the OpenH-4D tooling does not claim to be one.",
+  "note": "Tags that survive when Open-H-4D retains DICOM in a submission. Everything not listed here is dropped. This is an allowlist, not a blocklist, because the set of tags a vendor can hide PHI in is open-ended while the set 4D reconstruction needs is small and known. This is defense in depth on top of contributor-side de-identification -- it is not a de-identification tool, and the Open-H-4D tooling does not claim to be one.",
   "policy": "allowlist",
   "keep": {
     "identity": [

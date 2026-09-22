@@ -1,12 +1,12 @@
 [project]
-name = "openh-4d"
+name = "open-h-4d"
 version = "0.1.0"
-description = "Tooling, layout specification, and examples for the OpenH-4D open 4D cardiac and respiratory imaging dataset initiative."
+description = "Tooling, layout specification, and examples for the Open-H-4D open 4D cardiac and respiratory imaging dataset initiative."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
 authors = [
-    { name = "OpenH-4D Contributors" },
+    { name = "Open-H-4D Contributors" },
 ]
 dependencies = [
     "numpy>=1.26",

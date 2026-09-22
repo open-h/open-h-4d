@@ -241,7 +241,7 @@ def test_existing_study_json_is_updated_not_replaced(sequence, tmp_path):
     study_dir = tmp_path / "STAN-0001A"
     study_dir.mkdir()
     (study_dir / "study.json").write_text(
-        json.dumps({"schema": "openh-4d/study/1.0", "modality": "CT", "organ": "heart"}),
+        json.dumps({"schema": "open-h-4d/study/1.0", "modality": "CT", "organ": "heart"}),
         encoding="utf-8",
     )
     convert(sequence[0], study_dir)
@@ -297,7 +297,7 @@ def test_empty_directory_is_a_clear_error(tmp_path):
 
 
 def test_a_3d_file_is_refused_with_a_useful_message(tmp_path):
-    """One volume is a 3D study; OpenH-4D collects 4D."""
+    """One volume is a 3D study; Open-H-4D collects 4D."""
     path = write_3d_nrrd(tmp_path / "single.nrrd")
     with pytest.raises(NrrdConvertError, match="at least two time points"):
         convert(path, tmp_path / "STAN-0001A")

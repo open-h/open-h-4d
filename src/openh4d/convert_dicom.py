@@ -34,7 +34,7 @@ from typing import Any
 from .check_volumes import VolumeReadError, compare_geometry, read_header
 from .fetch_dcm2niix import Dcm2niixError, resolve
 
-#: Arguments held constant for every OpenH-4D conversion, so 20,000 studies from
+#: Arguments held constant for every Open-H-4D conversion, so 20,000 studies from
 #: dozens of contributors are converted identically.
 #:   -z y   gzip the output
 #:   -b y   write the BIDS-style JSON sidecar, which carries acquisition detail

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-h.org/openh-4d/schemas/patient/1.0",
-  "title": "OpenH-4D patient.json",
-  "description": "Auxiliary patient information, one per patient, living in <patient_id>_ehr/patient.json. Fields follow OpenH-4D RFP section 8 (Patient information).",
+  "$id": "https://open-h.org/open-h-4d/schemas/patient/1.0",
+  "title": "Open-H-4D patient.json",
+  "description": "Auxiliary patient information, one per patient, living in <patient_id>_ehr/patient.json. Fields follow Open-H-4D RFP section 8 (Patient information).",
   "type": "object",
   "required": ["schema", "patient_id", "studies", "demographics", "reason_for_scan", "deidentification"],
   "additionalProperties": false,
   "properties": {
-    "schema": { "const": "openh-4d/patient/1.0" },
+    "schema": { "const": "open-h-4d/patient/1.0" },
     "patient_id": {
       "type": "string",
       "pattern": "^[A-Z][A-Z0-9-]{1,46}[0-9]$",

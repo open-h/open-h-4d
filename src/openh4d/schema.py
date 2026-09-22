@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Validation of the OpenH-4D JSON sidecars.
+"""Validation of the Open-H-4D JSON sidecars.
 
 Two layers:
 
